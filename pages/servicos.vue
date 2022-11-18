@@ -22,6 +22,10 @@
 export default ({
     name: "",
 
+    middleware() {
+        console.log('middleware serviços');
+    },
+
     data() {
         return {
         };
