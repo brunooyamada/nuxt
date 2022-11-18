@@ -1,6 +1,8 @@
 <template>
-  <!-- <Tutorial /> -->
-  <Nuxt />
+  <div>
+    <Nuxt />
+    <Tutorial />
+  </div>
 </template>
 
 <script lang="ts">
