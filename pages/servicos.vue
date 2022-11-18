@@ -12,6 +12,22 @@
 
         <br/><br/>
 
+        <pre>
+            {{ $fetchState }}
+        </pre>
+
+        <div v-if="$fetchState.pending">
+            Carregando ...
+        </div>
+
+        <div v-else>
+            <div v-for="service in services" :key="service.id"
+                class="border-b border-gray-400 py-4"
+            >
+                {{ service.username }}
+            </div>
+        </div>        
+
         <NuxtChild />
 
     </div>
@@ -22,13 +38,14 @@
 export default ({
     name: "",
 
-    middleware() {
-        console.log('middleware serviços');
-    },
-
     data() {
         return {
+            services: [],
         };
+    },
+
+    async fetch() {
+        this.services = await this.$axios.$get('https://jsonplaceholder.typicode.com/users?_limit=3');
     },
     
     methods: {},
