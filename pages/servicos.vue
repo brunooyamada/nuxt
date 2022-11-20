@@ -38,8 +38,21 @@
 export default ({
     name: "",
 
+    head() {
+        return {
+            title: this.title,
+            meta: [
+                { hid: 'description', name: 'description', content: 'Minha descrição do serviço' },
+            ],
+            bodyAttrs: {
+                class: 'bg-gray-400',
+            }
+        }
+    },
+
     data() {
         return {
+            title: '',
             services: [],
         };
     },
@@ -47,7 +60,17 @@ export default ({
     async fetch() {
         this.services = await this.$axios.$get('https://jsonplaceholder.typicode.com/users?_limit=3');
     },
+
+    created() {
+        this.getTitle();
+    },
     
-    methods: {},
+    methods: {
+        getTitle() {
+            setTimeout(() => {
+                this.title = 'Serviços';
+            }, 3000);
+        }
+    },
 })
 </script>
