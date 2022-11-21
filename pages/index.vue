@@ -41,16 +41,16 @@ export default Vue.extend({
 
   created() {
     console.log(this.$config.facebook_api_key);
-    console.log(this.$name('Jon Snow'));
+    // console.log(this.$name('Jon Snow'));
   },
 
   mounted() {
-    console.log(this.$dayjs().format());
+    // console.log(this.$dayjs().format());
   },
 
   computed: {
     ...mapState({
-      user: state => state.user,
+      // user: state => state.user,
     })
   },
 })
