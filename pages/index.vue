@@ -2,6 +2,10 @@
   <div>
     <Nuxt />
 
+    <pre>
+      {{ $config }}
+    </pre>
+
     <VTooltip>
       <a>Sponsor me</a>
 
@@ -31,7 +35,12 @@ export default Vue.extend({
     return {};
   },
 
+  asyncData({ $config }) {
+    console.log($config);
+  },
+
   created() {
+    console.log(this.$config.facebook_api_key);
     console.log(this.$name('Jon Snow'));
   },
 
